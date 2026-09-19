@@ -29,8 +29,20 @@
 
   <section class="container section-tight stack" style="gap: 18px; padding-top: 32px; text-align: center; align-items: center;">
     <span class="eyebrow">Pricing</span>
-    <h1 style="font-size: 48px; max-width: 700px;">Packages built around what you actually need.</h1>
+    <h1 style="font-size: clamp(32px, 5.5vw, 48px); max-width: 700px;">Packages built around what you actually need.</h1>
     <p style="font-size: 17px; line-height: 1.6; color: var(--muted); max-width: 560px;">Every project starts with a free 20-minute call — the price below is confirmed after that, based on scope.</p>
+
+    <div class="stack" style="gap: 6px; align-items: center; margin-top: 8px;">
+      <label for="currency" style="font-size: 13px; color: var(--muted);">Viewing prices in</label>
+      <select id="currency" class="select-input">
+        <option value="ZAR">South Africa — ZAR (R)</option>
+        <option value="USD">United States — USD ($)</option>
+        <option value="GBP">United Kingdom — GBP (£)</option>
+        <option value="EUR">Europe — EUR (€)</option>
+        <option value="AUD">Australia — AUD (A$)</option>
+      </select>
+    </div>
+    <p style="font-size: 12.5px; color: var(--muted-2); max-width: 420px;">Converted using today's exchange rate as a guide — invoices are issued in South African Rand (ZAR).</p>
   </section>
 
   <section class="container section" style="padding-top: 24px;">
@@ -42,8 +54,8 @@
           <p style="font-size: 14px; color: var(--muted-2);">A focused one-to-three page site.</p>
         </div>
         <div class="stack" style="gap: 2px;">
-          <p style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 600;">[R X,XXX]</p>
-          <p style="font-size: 13px; color: var(--muted-2);">once-off</p>
+          <p id="price-starter" data-zar="4500" style="font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 38px); font-weight: 600;">R 4,500</p>
+          <p style="font-size: 13px; color: var(--muted-2);">once-off · [example price, edit me]</p>
         </div>
         <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--muted);">
           <li>Up to 3 pages</li>
@@ -62,8 +74,8 @@
           <p style="font-size: 14px; color: var(--muted-2);">A full site for a small business or founder.</p>
         </div>
         <div class="stack" style="gap: 2px;">
-          <p style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 600;">[R XX,XXX]</p>
-          <p style="font-size: 13px; color: var(--muted-2);">once-off</p>
+          <p id="price-growth" data-zar="12000" style="font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 38px); font-weight: 600;">R 12,000</p>
+          <p style="font-size: 13px; color: var(--muted-2);">once-off · [example price, edit me]</p>
         </div>
         <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--muted);">
           <li>Up to 6 pages</li>
@@ -82,7 +94,7 @@
           <p style="font-size: 14px; color: var(--muted-2);">Online stores, dashboards, or larger sites.</p>
         </div>
         <div class="stack" style="gap: 2px;">
-          <p style="font-family: 'Fraunces', serif; font-size: 38px; font-weight: 600;">Let's talk</p>
+          <p style="font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 38px); font-weight: 600;">Let's talk</p>
           <p style="font-size: 13px; color: var(--muted-2);">scoped together</p>
         </div>
         <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--muted);">
@@ -99,7 +111,7 @@
 
   <section class="footer">
     <div class="container section stack" style="gap: 32px; max-width: 760px;">
-      <h2 style="font-size: 28px;">A couple of things worth knowing</h2>
+      <h2 style="font-size: clamp(22px, 3.5vw, 28px);">A couple of things worth knowing</h2>
       <div class="stack" style="gap: 24px;">
         <div class="stack" style="gap: 6px;">
           <p style="font-weight: 600; font-size: 15.5px;">What's not included in the price?</p>
@@ -131,6 +143,71 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var CURRENCIES = {
+    ZAR: { locale: 'en-ZA' },
+    USD: { locale: 'en-US' },
+    GBP: { locale: 'en-GB' },
+    EUR: { locale: 'de-DE' },
+    AUD: { locale: 'en-AU' }
+  };
+
+  // Approximate fallback rates from ZAR — used only if the live rate lookup
+  // below fails (offline, blocked, etc). Update occasionally if you rely on these.
+  var FALLBACK_RATES = { ZAR: 1, USD: 0.055, GBP: 0.043, EUR: 0.051, AUD: 0.084 };
+  var rates = Object.assign({}, FALLBACK_RATES);
+
+  var select = document.getElementById('currency');
+  var priceEls = document.querySelectorAll('[data-zar]');
+
+  function render(currency) {
+    var info = CURRENCIES[currency] || CURRENCIES.ZAR;
+    var rate = rates[currency] || FALLBACK_RATES[currency] || 1;
+    priceEls.forEach(function (el) {
+      var zar = parseFloat(el.getAttribute('data-zar'));
+      var converted = Math.round(zar * rate);
+      try {
+        el.textContent = new Intl.NumberFormat(info.locale, {
+          style: 'currency',
+          currency: currency,
+          maximumFractionDigits: 0
+        }).format(converted);
+      } catch (e) {
+        el.textContent = currency + ' ' + converted.toLocaleString();
+      }
+    });
+  }
+
+  var initial = 'ZAR';
+  try {
+    var saved = localStorage.getItem('khd-currency');
+    if (saved && CURRENCIES[saved]) initial = saved;
+  } catch (e) { /* private browsing etc — fall back to ZAR */ }
+
+  select.value = initial;
+  render(initial);
+
+  select.addEventListener('change', function () {
+    try { localStorage.setItem('khd-currency', select.value); } catch (e) {}
+    render(select.value);
+  });
+
+  // Try to refresh with a live rate; silently keep the fallback table if it fails.
+  fetch('https://api.frankfurter.app/latest?from=ZAR')
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (data && data.rates) {
+        Object.keys(CURRENCIES).forEach(function (cur) {
+          if (cur !== 'ZAR' && data.rates[cur]) rates[cur] = data.rates[cur];
+        });
+        render(select.value);
+      }
+    })
+    .catch(function () { /* keep fallback rates */ });
+})();
+</script>
 
 </body>
 </html>
