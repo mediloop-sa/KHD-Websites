@@ -13,6 +13,8 @@
   .field { display: flex; flex-direction: column; gap: 8px; }
   .field label { font-size: 14px; font-weight: 500; }
   .field input, .field textarea {
+    width: 100%;
+    box-sizing: border-box;
     font-family: inherit;
     font-size: 15px;
     padding: 13px 16px;
@@ -45,15 +47,15 @@
 
 <main>
 
-  <section class="container section" style="padding-top: 32px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start;">
+  <section class="container section split-reverse" style="padding-top: 32px;">
 
     <div class="stack" style="gap: 20px;">
       <span class="eyebrow">Contact</span>
-      <h1 style="font-size: 44px;">Tell me about your project.</h1>
+      <h1 style="font-size: clamp(30px, 5vw, 44px);">Tell me about your project.</h1>
       <p style="font-size: 16.5px; line-height: 1.6; color: var(--muted);">Fill in the form, or email me directly. I read every message myself and reply within [1–2 business days].</p>
 
       <div class="stack" style="gap: 16px; margin-top: 12px;">
-        <a href="mailto:hello@khdwebsites.com" style="font-size: 15px; font-weight: 500; color: var(--accent);">hello@khdwebsites.com</a>
+        <a href="mailto:khdwebsites@gmail.com" style="font-size: 15px; font-weight: 500; color: var(--accent);">khdwebsites@gmail.com</a>
         <div class="stack" style="gap: 2px;">
           <p style="font-size: 13px; color: var(--muted-2);">Based in [City, Country]</p>
           <p style="font-size: 13px; color: var(--muted-2);">Working with clients [remotely, worldwide]</p>
