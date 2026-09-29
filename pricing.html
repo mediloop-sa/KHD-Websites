@@ -14,7 +14,7 @@
 
 <header class="container">
   <nav class="nav">
-    <a href="index.html" class="nav-logo">KHD Websites</a>
+    <a href="index.html" class="nav-logo"><span class="logo-badge">KHD</span><span>Websites <span class="brand-and">&amp;</span> <span class="brand-sub">Designs</span></span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="work.html">Work</a>
@@ -45,86 +45,166 @@
     <p style="font-size: 12.5px; color: var(--muted-2); max-width: 420px;">Converted using today's exchange rate as a guide — invoices are issued in South African Rand (ZAR).</p>
   </section>
 
-  <section class="container section" style="padding-top: 24px;">
-    <div class="grid-3" style="align-items: stretch;">
+  <section class="container" style="padding-top: 0; padding-bottom: 32px;">
+    <div class="banner">
+      <span class="banner-badge">50% OFF</span>
+      <p style="font-size: 14.5px; line-height: 1.5;">Launch offer on all design &amp; build plans. Book with a 50% deposit before <strong>31 December 2026</strong>.</p>
+    </div>
+  </section>
 
-      <div class="card stack" style="gap: 24px; padding: 32px;">
-        <div class="stack" style="gap: 6px;">
-          <h2 style="font-size: 20px;">Starter</h2>
-          <p style="font-size: 14px; color: var(--muted-2);">A focused one-to-three page site.</p>
+  <!-- DESIGN + BUILD -->
+  <section class="container section-tight">
+    <div class="stack" style="gap: 4px; margin-bottom: 24px;">
+      <h2 style="font-size: clamp(22px, 3.5vw, 28px);">Design + Build</h2>
+      <p style="font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-2);">Full packages</p>
+    </div>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width: 20%;">Package</th>
+          <th>Includes</th>
+          <th class="num">Usually</th>
+          <th class="num">Now</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Package"><span class="pkg-name">Starter</span></td>
+          <td data-label="Includes" style="font-size: 14.5px; color: var(--muted); line-height: 1.5;">Up to 3 pages, mobile-friendly, contact form, WhatsApp button, basic SEO, 1 revision round</td>
+          <td class="num" data-label="Usually"><span class="was" data-zar="6000">R 6,000</span></td>
+          <td class="num" data-label="Now"><span class="now" data-zar="3000">R 3,000</span></td>
+        </tr>
+        <tr>
+          <td data-label="Package"><span class="pkg-name">Business</span><span class="pkg-badge">★</span></td>
+          <td data-label="Includes" style="font-size: 14.5px; color: var(--muted); line-height: 1.5;">Up to 6 pages, custom design, blog, Google Business setup, on-page SEO, 2 revision rounds</td>
+          <td class="num" data-label="Usually"><span class="was" data-zar="12000">R 12,000</span></td>
+          <td class="num" data-label="Now"><span class="now" data-zar="6000">R 6,000</span></td>
+        </tr>
+        <tr>
+          <td data-label="Package"><span class="pkg-name">Online Store</span></td>
+          <td data-label="Includes" style="font-size: 14.5px; color: var(--muted); line-height: 1.5;">Shopify store, up to 50 products, PayFast / Yoco payments, shipping setup, training</td>
+          <td class="num" data-label="Usually"><span class="was" data-zar="25000">R 25,000</span></td>
+          <td class="num" data-label="Now"><span class="now" data-zar="12500">R 12,500</span></td>
+        </tr>
+        <tr>
+          <td data-label="Package"><span class="pkg-name">Custom</span></td>
+          <td data-label="Includes" style="font-size: 14.5px; color: var(--muted); line-height: 1.5;">Bookings, client portals, integrations — scoped in a paid planning session</td>
+          <td class="num" data-label="Usually"></td>
+          <td class="num" data-label="Now"><span class="now">Quote on request</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- DESIGN ONLY / BUILD ONLY -->
+  <section class="container section-tight" style="padding-top: 0;">
+    <div class="split" style="align-items: start;">
+      <div class="stack" style="gap: 6px;">
+        <h2 style="font-size: 19px; margin-bottom: 10px;">Design only</h2>
+        <div class="mini-row">
+          <span style="font-size: 14.5px;">Starter <span class="muted-2">(1–3 pages)</span></span>
+          <span><span class="was" data-zar="4000">R 4,000</span><span class="now" data-zar="2000">R 2,000</span></span>
         </div>
-        <div class="stack" style="gap: 2px;">
-          <p id="price-starter" data-zar="4500" style="font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 38px); font-weight: 600;">R 4,500</p>
-          <p style="font-size: 13px; color: var(--muted-2);">once-off · [example price, edit me]</p>
+        <div class="mini-row">
+          <span style="font-size: 14.5px;">Business <span class="muted-2">(up to 6 pages)</span></span>
+          <span><span class="was" data-zar="8000">R 8,000</span><span class="now" data-zar="4000">R 4,000</span></span>
         </div>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--muted);">
-          <li>Up to 3 pages</li>
-          <li>Mobile-responsive design</li>
-          <li>Contact form</li>
-          <li>[2 rounds] of revisions</li>
-          <li>Deployed on Vercel</li>
-        </ul>
-        <a href="contact.html" class="btn btn-secondary" style="margin-top: auto;">Start here</a>
+        <div class="mini-row">
+          <span style="font-size: 14.5px;">Premium <span class="muted-2">(10+ pages, style guide)</span></span>
+          <span><span class="was" data-zar="15000">R 15,000</span><span class="now" data-zar="7500">R 7,500</span></span>
+        </div>
       </div>
 
-      <div class="card stack" style="gap: 24px; padding: 32px; border: 2px solid var(--accent); position: relative;">
-        <span class="tag" style="align-self: flex-start; background: var(--accent); color: #FFFFFF;">Most popular</span>
-        <div class="stack" style="gap: 6px;">
-          <h2 style="font-size: 20px;">Growth</h2>
-          <p style="font-size: 14px; color: var(--muted-2);">A full site for a small business or founder.</p>
+      <div class="stack" style="gap: 6px;">
+        <h2 style="font-size: 19px; margin-bottom: 10px;">Build only</h2>
+        <div class="mini-row">
+          <span style="font-size: 14.5px;">Landing page</span>
+          <span><span class="was" data-zar="3500">R 3,500</span><span class="now" data-zar="1750">R 1,750</span></span>
         </div>
-        <div class="stack" style="gap: 2px;">
-          <p id="price-growth" data-zar="12000" style="font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 38px); font-weight: 600;">R 12,000</p>
-          <p style="font-size: 13px; color: var(--muted-2);">once-off · [example price, edit me]</p>
+        <div class="mini-row">
+          <span style="font-size: 14.5px;">Business site <span class="muted-2">(up to 6 pages)</span></span>
+          <span><span class="was" data-zar="7500">R 7,500</span><span class="now" data-zar="3750">R 3,750</span></span>
         </div>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--muted);">
-          <li>Up to 6 pages</li>
-          <li>Custom design, not a template</li>
-          <li>Copywriting support</li>
-          <li>Basic SEO setup + sitemap</li>
-          <li>[3 rounds] of revisions</li>
-          <li>30 days of post-launch support</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="margin-top: auto;">Start here</a>
+        <div class="mini-row">
+          <span style="font-size: 14.5px;">Online store <span class="muted-2">(Shopify)</span></span>
+          <span><span class="was" data-zar="15000">R 15,000</span><span class="now" data-zar="7500">R 7,500</span></span>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card stack" style="gap: 24px; padding: 32px;">
-        <div class="stack" style="gap: 6px;">
-          <h2 style="font-size: 20px;">Custom</h2>
-          <p style="font-size: 14px; color: var(--muted-2);">Online stores, dashboards, or larger sites.</p>
-        </div>
-        <div class="stack" style="gap: 2px;">
-          <p style="font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 38px); font-weight: 600;">Let's talk</p>
-          <p style="font-size: 13px; color: var(--muted-2);">scoped together</p>
-        </div>
-        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: var(--muted);">
-          <li>Unlimited pages</li>
-          <li>E-commerce or custom features</li>
-          <li>CMS so you can edit content</li>
-          <li>Ongoing maintenance available</li>
-        </ul>
-        <a href="contact.html" class="btn btn-secondary" style="margin-top: auto;">Book a call</a>
+  <!-- HOSTING & CARE -->
+  <section class="footer">
+    <div class="container section-tight">
+      <div class="stack" style="gap: 4px; margin-bottom: 24px;">
+        <h2 style="font-size: clamp(22px, 3.5vw, 28px);">Hosting &amp; Care</h2>
+        <p style="font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-2);">Monthly · first 3 months free with any package</p>
       </div>
+      <div class="grid-3">
+        <div class="card stack" style="gap: 10px; padding: 24px;">
+          <p style="font-weight: 600; font-size: 16px;">Basic</p>
+          <p><span class="now" data-zar="250">R 250</span><span class="muted-2" style="font-size: 14px;">/m</span></p>
+          <p style="font-size: 14px; line-height: 1.5; color: var(--muted-2);">Hosting, .co.za domain, SSL, 5 emails, backups</p>
+        </div>
+        <div class="card stack" style="gap: 10px; padding: 24px; background: var(--card-alt); border-color: var(--accent);">
+          <p style="font-weight: 600; font-size: 16px;">Business Care</p>
+          <p><span class="now" data-zar="450">R 450</span><span class="muted-2" style="font-size: 14px;">/m</span></p>
+          <p style="font-size: 14px; line-height: 1.5; color: var(--muted-2);">Basic + updates, security checks, 1 hr edits a month</p>
+        </div>
+        <div class="card stack" style="gap: 10px; padding: 24px;">
+          <p style="font-weight: 600; font-size: 16px;">Premium Care</p>
+          <p><span class="now" data-zar="850">R 850</span><span class="muted-2" style="font-size: 14px;">/m</span></p>
+          <p style="font-size: 14px; line-height: 1.5; color: var(--muted-2);">Business Care + 3 hrs edits, speed reports, priority support</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ADD-ONS -->
+  <section class="container section-tight">
+    <h2 style="font-size: clamp(22px, 3.5vw, 28px); margin-bottom: 20px;">Add-ons</h2>
+    <div class="grid-3">
+      <div class="stack" style="gap: 0;">
+        <div class="addon-row">
+          <span>Logo design</span>
+          <span class="now" data-zar="1500">R 1,500</span>
+        </div>
+        <div class="addon-row">
+          <span>Product uploads</span>
+          <span><span class="now" data-zar="25">R 25</span><span class="muted-2"> each</span></span>
+        </div>
+      </div>
+      <div class="stack" style="gap: 0;">
+        <div class="addon-row">
+          <span>Extra page</span>
+          <span class="now" data-zar="800">R 800</span>
+        </div>
+        <div class="addon-row">
+          <span>Monthly SEO</span>
+          <span><span class="now" data-zar="2500">R 2,500</span><span class="muted-2">/m</span></span>
+        </div>
+      </div>
+      <div class="stack" style="gap: 0;">
+        <div class="addon-row">
+          <span>Copywriting</span>
+          <span><span class="now" data-zar="350">R 350</span><span class="muted-2">/page</span></span>
+        </div>
+        <div class="addon-row">
+          <span>Rush delivery</span>
+          <span class="now">+25%</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="footer">
-    <div class="container section stack" style="gap: 32px; max-width: 760px;">
-      <h2 style="font-size: clamp(22px, 3.5vw, 28px);">A couple of things worth knowing</h2>
-      <div class="stack" style="gap: 24px;">
-        <div class="stack" style="gap: 6px;">
-          <p style="font-weight: 600; font-size: 15.5px;">What's not included in the price?</p>
-          <p style="font-size: 14.5px; line-height: 1.6; color: var(--muted-2);">Domain names, hosting fees, and any paid stock photography are billed separately, at cost.</p>
-        </div>
-        <div class="stack" style="gap: 6px;">
-          <p style="font-weight: 600; font-size: 15.5px;">How long does a project take?</p>
-          <p style="font-size: 14.5px; line-height: 1.6; color: var(--muted-2);">[Typically 2–4 weeks] for a Starter or Growth site, depending on how quickly content comes together.</p>
-        </div>
-        <div class="stack" style="gap: 6px;">
-          <p style="font-weight: 600; font-size: 15.5px;">Do you offer payment plans?</p>
-          <p style="font-size: 14.5px; line-height: 1.6; color: var(--muted-2);">[Yes — a deposit to start, with the balance split across the build.] Happy to talk through it on the call.</p>
-        </div>
+    <div class="container section-tight" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap;">
+      <p style="font-size: 13.5px; line-height: 1.6; color: var(--muted-2); max-width: 480px;">Discount applies to design &amp; build only. 50% deposit secures your booking; projects may start in January 2027. Hosting plans have a 12-month minimum.</p>
+      <div class="stack" style="gap: 4px; font-size: 13.5px;">
+        <a href="#" style="color: var(--ink);">[WhatsApp number]</a>
+        <a href="mailto:khdwebsites@gmail.com" style="color: var(--accent);">khdwebsites@gmail.com</a>
+        <a href="contact.html" style="color: var(--muted);">khdwebsites.com</a>
       </div>
     </div>
   </section>
@@ -132,9 +212,9 @@
 </main>
 
 <footer class="footer">
-  <div class="container" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="container" style="padding-top: 0; padding-bottom: 48px;">
     <div class="footer-bottom">
-      <p class="copyright">© 2026 KHD Websites. All rights reserved.</p>
+      <p class="copyright">© 2026 KHD Websites &amp; Designs. All rights reserved.</p>
       <div class="footer-social">
         <a href="#">GitHub</a>
         <a href="#">LinkedIn</a>
