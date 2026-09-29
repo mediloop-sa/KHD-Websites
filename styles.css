@@ -77,9 +77,38 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Fraunces', serif;
   font-weight: 600;
   font-size: 20px;
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+}
+
+.brand-and {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.brand-sub {
+  font-style: italic;
+  font-weight: 500;
 }
 
 .nav-links {
@@ -257,6 +286,107 @@ img { max-width: 100%; display: block; }
   max-width: 100%;
 }
 
+/* ---------- Price menu ---------- */
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-alt);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  flex-wrap: wrap;
+}
+
+.banner-badge {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-table th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  font-weight: 500;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.price-table th.num, .price-table td.num {
+  text-align: right;
+}
+
+.price-table td {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.price-table tr:last-child td { border-bottom: none; }
+
+.pkg-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.pkg-badge {
+  color: var(--accent);
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.was {
+  text-decoration: line-through;
+  color: var(--muted-2);
+  font-size: 14px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.now {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.mini-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mini-row:last-child { border-bottom: none; }
+
+.addon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+}
+
+.addon-row:last-child { border-bottom: none; }
+
 /* ---------- Responsive ---------- */
 /* Fluid type: headings use clamp() inline, so they scale continuously
    between phone and desktop rather than jumping at a breakpoint. */
@@ -277,4 +407,20 @@ img { max-width: 100%; display: block; }
   .nav { flex-direction: column; align-items: flex-start; gap: 16px; }
   .nav-links { gap: 16px 22px; width: 100%; }
   h1 { line-height: 1.18 !important; }
+
+  .price-table thead { display: none; }
+  .price-table, .price-table tbody, .price-table tr, .price-table td { display: block; width: 100%; }
+  .price-table tr { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .price-table td { border-bottom: none; padding: 4px 0; text-align: left; }
+  .price-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted-2);
+    margin-bottom: 4px;
+  }
+
+  .mini-row, .addon-row { flex-wrap: wrap; }
 }
