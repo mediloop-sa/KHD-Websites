@@ -509,6 +509,42 @@ img { max-width: 100%; display: block; }
   max-width: 640px;
 }
 
+/* ---------- Legal content (Terms / Privacy) ---------- */
+
+.legal-content {
+  max-width: 720px;
+}
+
+.legal-content h2 {
+  font-size: 22px;
+  margin-top: 44px;
+  margin-bottom: 12px;
+}
+
+.legal-content h2:first-child { margin-top: 0; }
+
+.legal-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.legal-content ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+}
+
+.legal-content li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.legal-content strong { color: var(--ink); font-weight: 600; }
+.legal-content a { color: var(--accent); }
+
 /* ---------- Responsive ---------- */
 /* Fluid type: headings use clamp() inline, so they scale continuously
    between phone and desktop rather than jumping at a breakpoint. */
