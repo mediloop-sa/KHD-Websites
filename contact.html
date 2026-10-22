@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <form class="card stack" style="gap: 20px; padding: 32px;" action="[YOUR FORM ENDPOINT — e.g. Formspree]" method="POST">
+    <form id="contact-form" class="card stack" style="gap: 20px; padding: 32px;">
       <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -90,7 +90,15 @@
         <label for="message">Tell me about your project</label>
         <textarea id="message" name="message" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send message</button>
+      <button type="submit" id="send-btn" class="btn btn-primary" style="align-self: flex-start;">Send message</button>
+      <div id="send-choice" hidden style="border-top: 1px solid var(--line, #E6D9DE); padding-top: 20px;">
+        <p style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">Almost done. How would you like to send it?</p>
+        <p style="font-size: 13.5px; color: var(--muted); margin-bottom: 14px;">Your message will open ready to send in the app you choose.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a id="send-wa" class="btn btn-primary" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+          <a id="send-mail" class="btn btn-secondary" href="#">Send by email</a>
+        </div>
+      </div>
     </form>
 
   </section>
@@ -121,5 +129,29 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var choice = document.getElementById('send-choice');
+  var wa = document.getElementById('send-wa');
+  var mail = document.getElementById('send-mail');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var budget = form.budget.value.trim();
+    var message = form.message.value.trim();
+    var lines = ['Hi Kea, I found you through khdwebsites.co.za.', '', 'Name: ' + name, 'Email: ' + email];
+    if (budget) lines.push('Approximate budget: ' + budget);
+    lines.push('', message);
+    var text = lines.join('\n');
+    wa.href = 'https://wa.me/27822593302?text=' + encodeURIComponent(text);
+    mail.href = 'mailto:khdwebsites@gmail.com?subject=' + encodeURIComponent('Website enquiry from ' + name) + '&body=' + encodeURIComponent(text);
+    choice.hidden = false;
+    choice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+})();
+</script>
 </body>
 </html>
